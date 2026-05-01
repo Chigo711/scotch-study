@@ -2,7 +2,7 @@ import { Stack } from "expo-router";
 import { ClerkProvider } from "@clerk/expo";
 import { tokenCache } from "@clerk/expo/token-cache";
 import "../../global.css";
-
+import { GestureHandlerRootView } from "react-native-gesture-handler";
 import * as Sentry from '@sentry/react-native';
 
 Sentry.init({
@@ -31,12 +31,23 @@ if (!publishableKey) {
 }
 
 export default function RootLayout() {
+  // fetch("/token",{
+  //   method: "POST",
+  //   headers: {
+  //     "Content-Type": "application/json"
+  //   },
+  //   body: JSON.stringify({
+  //     userId: "user-id"
+  //   })
+  // })
   return (
     <ClerkProvider tokenCache={tokenCache} publishableKey={publishableKey}>
+      <GestureHandlerRootView style={{ flex: 1 }}>
       <Stack screenOptions={{ headerShown: false }}>
         <Stack.Screen name="(tabs)" />
         <Stack.Screen name="(auth)" />
       </Stack>
+      </GestureHandlerRootView>
     </ClerkProvider>
   );
 }

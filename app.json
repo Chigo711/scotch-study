@@ -21,7 +21,7 @@
       "package": "com.zie.tuddle"
     },
     "web": {
-      "output": "static",
+      "output": "server",
       "favicon": "./assets/images/favicon.png",
       "bundler": "metro"
     },
@@ -45,7 +45,8 @@
           "project": "react-native",
           "organization": "carigo-6q"
         }
-      ]
+      ],
+      "expo-sharing"
     ],
     "experiments": {
       "typedRoutes": true,
